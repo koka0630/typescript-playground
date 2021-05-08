@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-function loadJSON(filename: string, callback: (data: any, error:Error) => void){
+function loadJSON(filename: string, callback: (data: any, error: any) => void){
     fs.readFile(filename, function (err, data) {
         if (err) {
             callback(null , err);
