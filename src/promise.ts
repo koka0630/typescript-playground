@@ -1,27 +1,51 @@
-import * as fs from "fs";
+// console.log("1番目");
 
-function loadJSON(filename: string, callback: (data: any, error: any) => void){
-    fs.readFile(filename, function (err, data) {
-        if (err) {
-            callback(null , err);
-        }
-        else {
-            try {
-                console.log(data.toString());
-               callback (JSON.parse(data.toString()), err);
-            } catch (err) {
-                callback (null, err);
-            }
-        }
-    }
-)};
+// // お約束を取り付けたい処理にPromise
+// const promise1 = new Promise((resolve) => {
+//   //1秒後に実行する処理
+// //   setTimeout(() => {
+//     console.log("2番目");
+//     //無事処理が終わったことを伝える
+//     resolve("resolved");
+//   }).then((res) => {
+//   // 処理が無事終わったことを受けとって実行される処理
+//   console.log(res);
+//   console.log("3番目");
+// });
 
-console.log("start");
-loadJSON("test.json", (data, err) => {
-    if (err === null) {
-        console.log(`works: name:${data.name} age:${data.age}`);
-    } else {
-        console.log(`error: ${err}`);
-    }
-});
-console.log("end");
+// // reject
+// const promise2 = new Promise((resolve, reject) => {
+//     reject();
+//   })
+//     .then(() => {
+//       console.log("resolveしたよ");
+//     })
+//     .catch(() => {
+//       console.log("rejectしたよ");
+//     });
+
+// チェーン
+// const promise = new Promise((resolve, reject) => {
+//     reject("test");
+//   })
+//     .then((val) => {
+//       console.log(`then1: ${val}`);
+//       return val;
+//     })
+//     .catch((val) => {
+//       console.log(`catch: ${val}`);
+//       return val;
+//     })
+//     .then((val) => {
+//       console.log(`then2: ${val}`);
+//     });
+
+new Promise((resolve, reject) => {
+    resolve("resolved")
+})
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
