@@ -25,7 +25,7 @@ interface Result {
 
 //sum(result: Result)と書くことで引数resultは必ずaとb持たなければならない。
 function sum(result: Result) {
-    return result.a;
+    return result.a + result.b;
 }
 
 var result = {
